@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { supabase } from './supabaseClient';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(true);
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -17,6 +18,9 @@ function Auth() {
       setMessage(error.message);
     } else {
       setMessage(isLogin ? 'Login successful!' : 'Sign-up successful! Check your email.');
+      setTimeout(() => {
+        navigate('/profile');
+      }, 1000);
     }
   };
 
