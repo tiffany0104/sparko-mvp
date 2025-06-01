@@ -1,6 +1,6 @@
 {
-  "name": "sparko-mvp",
-  "version": "0.0.1",
+  "name": "sparko-mvp-enhanced",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
