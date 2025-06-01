@@ -1,6 +1,6 @@
 {
-  "name": "sparko-mvp-fullauth",
-  "version": "1.2.0",
+  "name": "sparko-mvp-modified",
+  "version": "1.3.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

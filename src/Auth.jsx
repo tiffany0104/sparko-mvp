@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from './supabaseClient';
+import { Link } from 'react-router-dom';
 
 function Auth() {
   const [email, setEmail] = useState('');
@@ -21,6 +22,7 @@ function Auth() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-orange-50 px-4">
+      <Link to="/" className="absolute top-4 left-4 text-2xl font-bold text-orange-500">Sparko</Link>
       <div className="max-w-md w-full bg-white p-8 rounded shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-center text-orange-500">
           {isLogin ? 'Login to Sparko' : 'Create Your Sparko Account'}
