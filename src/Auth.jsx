@@ -27,37 +27,15 @@ function Auth() {
         </h2>
         {message && <p className="text-red-500 mb-4">{message}</p>}
         <form onSubmit={handleAuth} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full p-3 border rounded"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full p-3 border rounded"
-          />
-          <button
-            type="submit"
-            className="w-full bg-orange-400 text-white py-2 rounded hover:bg-orange-500"
-          >
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 border rounded" />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full p-3 border rounded" />
+          <button type="submit" className="w-full bg-orange-400 text-white py-2 rounded hover:bg-orange-500">
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </form>
         <p className="text-center mt-4">
           {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
-          <button
-            className="text-orange-500 underline"
-            onClick={() => setIsLogin(!isLogin)}
-          >
-            {isLogin ? 'Sign Up' : 'Login'}
-          </button>
+          <button className="text-orange-500 underline" onClick={() => setIsLogin(!isLogin)}>{isLogin ? 'Sign Up' : 'Login'}</button>
         </p>
       </div>
     </div>
