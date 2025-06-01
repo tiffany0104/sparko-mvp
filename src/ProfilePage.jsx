@@ -17,8 +17,8 @@ function ProfilePage() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-          <button className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200">Edit Profile</button>
-          <button className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200">View Matches</button>
+          <Link to="/edit-profile" className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200 text-center">Edit Profile</Link>
+          <Link to="/matching" className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200 text-center">Start Matching</Link>
           <button className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200">My Feedback</button>
           <button className="bg-orange-100 text-orange-600 px-4 py-2 rounded hover:bg-orange-200">Upgrade to Premium</button>
         </div>
