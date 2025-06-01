@@ -1,6 +1,6 @@
 {
-  "name": "sparko-mvp-enhanced",
-  "version": "0.0.2",
+  "name": "sparko-mvp-tailwind",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,6 +12,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
-    "vite": "^4.0.0"
+    "vite": "^4.0.0",
+    "tailwindcss": "^3.2.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
   }
 }
