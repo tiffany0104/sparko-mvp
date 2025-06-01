@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from './supabaseClient';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -9,13 +9,12 @@ function EditProfile() {
     about_me: '',
     skills: '',
     startup_idea: '',
-    looking_for: '',
-    commitment_level: '',
+    looking_for: 'Co-founder',
+    commitment_level: 'Side Project',
     contact_info: '',
     linkedin: '',
     profile_pic_url: ''
   });
-  const [previewUrl, setPreviewUrl] = useState('');
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -44,17 +43,37 @@ function EditProfile() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow rounded">
+      <Link to="/profile" className="text-orange-500 underline mb-4 block">← Back to Profile</Link>
       <h1 className="text-2xl font-bold mb-4 text-center text-orange-500">Edit Your Profile</h1>
       <input type="file" onChange={handleImageUpload} className="mb-2" />
-      <input value={profile.full_name} onChange={(e) => setProfile({ ...profile, full_name: e.target.value })} placeholder="Full Name" className="w-full p-2 mb-2 border rounded" />
-      <textarea value={profile.about_me} onChange={(e) => setProfile({ ...profile, about_me: e.target.value })} placeholder="About Me" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.skills} onChange={(e) => setProfile({ ...profile, skills: e.target.value })} placeholder="Skills" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.startup_idea} onChange={(e) => setProfile({ ...profile, startup_idea: e.target.value })} placeholder="Startup Idea" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.looking_for} onChange={(e) => setProfile({ ...profile, looking_for: e.target.value })} placeholder="Looking For" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.commitment_level} onChange={(e) => setProfile({ ...profile, commitment_level: e.target.value })} placeholder="Commitment Level" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.contact_info} onChange={(e) => setProfile({ ...profile, contact_info: e.target.value })} placeholder="Contact Info (Private)" className="w-full p-2 mb-2 border rounded" />
-      <input value={profile.linkedin} onChange={(e) => setProfile({ ...profile, linkedin: e.target.value })} placeholder="LinkedIn (Private)" className="w-full p-2 mb-2 border rounded" />
-      <button onClick={handleSave} className="bg-orange-400 text-white px-4 py-2 rounded mt-4 w-full">Save</button>
+      <label>Full Name</label>
+      <input value={profile.full_name} onChange={(e) => setProfile({ ...profile, full_name: e.target.value })} placeholder="Enter your full name" className="w-full p-2 mb-2 border rounded" />
+      <label>About Me</label>
+      <textarea value={profile.about_me} onChange={(e) => setProfile({ ...profile, about_me: e.target.value })} placeholder="Tell us about yourself" className="w-full p-2 mb-2 border rounded" />
+      <label>Skills</label>
+      <input value={profile.skills} onChange={(e) => setProfile({ ...profile, skills: e.target.value })} placeholder="Your skills (comma-separated)" className="w-full p-2 mb-2 border rounded" />
+      <label>Startup Idea</label>
+      <input value={profile.startup_idea} onChange={(e) => setProfile({ ...profile, startup_idea: e.target.value })} placeholder="Brief startup idea" className="w-full p-2 mb-2 border rounded" />
+      <label>Looking For</label>
+      <select value={profile.looking_for} onChange={(e) => setProfile({ ...profile, looking_for: e.target.value })} className="w-full p-2 mb-2 border rounded">
+        <option>Co-founder</option>
+        <option>Investor</option>
+        <option>Exploring</option>
+      </select>
+      <label>Commitment Level</label>
+      <select value={profile.commitment_level} onChange={(e) => setProfile({ ...profile, commitment_level: e.target.value })} className="w-full p-2 mb-2 border rounded">
+        <option>Side Project</option>
+        <option>Full-time</option>
+        <option>Exploring</option>
+      </select>
+      <label>Contact Info (Private)</label>
+      <input value={profile.contact_info} onChange={(e) => setProfile({ ...profile, contact_info: e.target.value })} placeholder="Your contact info" className="w-full p-2 mb-2 border rounded" />
+      <label>LinkedIn (Private)</label>
+      <input value={profile.linkedin} onChange={(e) => setProfile({ ...profile, linkedin: e.target.value })} placeholder="LinkedIn profile URL" className="w-full p-2 mb-2 border rounded" />
+      <div className="flex justify-between mt-4">
+        <button onClick={handleSave} className="bg-orange-400 text-white px-4 py-2 rounded">Save</button>
+        <Link to="/profile" className="bg-gray-300 text-black px-4 py-2 rounded">Preview</Link>
+      </div>
     </div>
   );
 }
