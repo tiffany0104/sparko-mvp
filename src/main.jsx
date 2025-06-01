@@ -5,6 +5,7 @@ import Home from './Home';
 import Auth from './Auth';
 import ProfilePage from './ProfilePage';
 import EditProfile from './EditProfile';
+import Matching from './Matching';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/auth" element={<Auth />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/matching" element={<Matching />} />
       </Routes>
     </Router>
   </React.StrictMode>
