@@ -10,7 +10,7 @@ function Matching() {
   useEffect(() => {
     const fetchUsers = async () => {
       const user = supabase.auth.user();
-      console.log('Current User:', user);  // 確認目前登入用戶
+      console.log('Current User:', user);
       if (!user) {
         console.log('No user logged in.');
         return;
