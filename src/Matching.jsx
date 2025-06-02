@@ -10,11 +10,21 @@ function Matching() {
   useEffect(() => {
     const fetchUsers = async () => {
       const user = supabase.auth.user();
-      const { data } = await supabase
+      console.log('Current User:', user);  // 確認目前登入用戶
+      if (!user) {
+        console.log('No user logged in.');
+        return;
+      }
+      const { data, error } = await supabase
         .from('Users')
         .select('*')
-        .neq('id', user?.id);  // 過濾掉自己
-      setCards(data);
+        .neq('id', user.id);
+      if (error) {
+        console.log('Fetch error:', error);
+      } else {
+        console.log('Fetched Users:', data);
+        setCards(data);
+      }
     };
     fetchUsers();
   }, []);
