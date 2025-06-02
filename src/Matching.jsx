@@ -17,8 +17,7 @@ function Matching() {
       }
       const { data, error } = await supabase
         .from('Users')
-        .select('*')
-        .neq('id', user.id);
+        .select('*');
       if (error) {
         console.log('Fetch error:', error);
       } else {
