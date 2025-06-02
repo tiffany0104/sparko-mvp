@@ -9,8 +9,11 @@ function Matching() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const user = supabase.auth.user();
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
       console.log('Current User:', user);
+      if (userError) {
+        console.error('Error fetching current user:', userError);
+      }
       if (!user) {
         console.log('No user logged in.');
         return;
@@ -29,9 +32,10 @@ function Matching() {
   }, []);
 
   const handleSwipe = async (liked, isSuper = false) => {
-    const user = supabase.auth.user();
+    const { data: { user } } = await supabase.auth.getUser();
     if (!user || currentIndex >= cards.length) return;
     const targetUser = cards[currentIndex];
+    console.log('Swiping user:', user.id, 'target:', targetUser.id, 'liked:', liked, 'super_spark:', isSuper);
     await supabase.from('Swipes').insert({
       swiper_id: user.id,
       target_id: targetUser.id,
