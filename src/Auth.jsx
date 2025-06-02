@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Auth } from '@supabase/auth-ui-react';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from './supabaseClient';
+import { Link } from 'react-router-dom';
 
 function AuthPage() {
   useEffect(() => {
@@ -33,8 +33,13 @@ function AuthPage() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
-      <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+    <div className="min-h-screen bg-[#F9F5F0] flex flex-col items-center justify-center relative">
+      {/* Sparko logo 左上角，點擊回首頁 */}
+      <Link to="/" className="absolute top-4 left-4 text-xl font-bold text-orange-500">Sparko</Link>
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-4 text-center text-orange-500">Welcome to Sparko</h2>
+        <Auth supabaseClient={supabase} appearance={{ style: { button: { backgroundColor: '#FFA500', color: '#fff' }, anchor: { color: '#FFA500' } } }} />
+      </div>
     </div>
   );
 }
