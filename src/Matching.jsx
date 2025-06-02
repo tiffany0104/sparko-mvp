@@ -26,8 +26,7 @@ function Matching() {
       liked: liked,
       super_spark: isSuper
     });
-    // 模擬配對成功
-    const isMatch = liked && Math.random() > 0.5; // 50% 模擬配對成功
+    const isMatch = liked && Math.random() > 0.5;
     if (isMatch) {
       setMatchSuccess(true);
       confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
@@ -45,7 +44,7 @@ function Matching() {
   }
 
   const profile = cards[currentIndex];
-  const isSuperSpark = profile.super_spark; // 模擬 Super Spark 標記
+  const isSuperSpark = profile.super_spark;
 
   return (
     <div className="max-w-md mx-auto p-4">
@@ -54,7 +53,7 @@ function Matching() {
           🎉 You have unlocked a potential match!
         </div>
       )}
-      <div className={\`bg-white p-4 rounded shadow \${isSuperSpark ? 'border-4 border-yellow-400' : ''}\`}>
+      <div className={"bg-white p-4 rounded shadow " + (isSuperSpark ? "border-4 border-yellow-400" : "")}>
         <img src={profile.profile_pic_url} alt="Profile" className="w-full h-64 object-cover rounded mb-2" />
         <h2 className="text-xl font-bold">{profile.full_name}</h2>
         <p>{profile.startup_idea}</p>
