@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from './supabaseClient';
 
-function Auth() {
+function AuthPage() {
   useEffect(() => {
     const syncUserProfile = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -32,9 +34,9 @@ function Auth() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-white">
-      <h1 className="text-xl font-bold">Login Page (Placeholder)</h1>
+      <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
     </div>
   );
 }
 
-export default Auth;
+export default AuthPage;
