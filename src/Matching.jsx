@@ -9,7 +9,11 @@ function Matching() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const { data } = await supabase.from('Users').select('*');
+      const user = supabase.auth.user();
+      const { data } = await supabase
+        .from('Users')
+        .select('*')
+        .neq('id', user?.id);  // 過濾掉自己
       setCards(data);
     };
     fetchUsers();
