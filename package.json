@@ -1,7 +1,6 @@
 {
   "name": "sparko-mvp",
   "version": "1.0.0",
-  "description": "Sparko MVP with supabase, tailwindcss and confetti",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
