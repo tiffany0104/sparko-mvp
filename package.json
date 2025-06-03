@@ -1,5 +1,5 @@
 {
-  "name": "sparko-messaging",
+  "name": "sparko-mvp",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.30.0",
+    "@supabase/auth-ui-react": "^0.3.0",
+    "canvas-confetti": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
